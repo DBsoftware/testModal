@@ -1,0 +1,7 @@
+<div class="modal-backdrop" (click)="closeModal()" *ngIf="open$ | async">
+    <div class="modal-body"
+       [ngStyle]="styleObject"
+       (click)="stopPropagation($event)">
+        <app-table></app-table>
+    </div>
+</div>

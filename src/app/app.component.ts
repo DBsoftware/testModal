@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import data from './data';
+import { SubjectService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'modalTable';
+  dataToTable = data;
+  modalState = false
+  constructor(private _subjectService:SubjectService){
+    _subjectService.setData(this.dataToTable)
+  }
+
+  setModalState(state){
+    this._subjectService.setState(state)
+  }
 }

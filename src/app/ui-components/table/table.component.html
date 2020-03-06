@@ -1,0 +1,16 @@
+<ng-container *ngIf="(tableData$ | async) as data; else elseTemplate">
+  <div class="table-container">
+    <table>
+        <tr>
+          <th *ngFor="let item of headerFields">{{item}}</th>
+        </tr>
+        <tr *ngFor="let item of data">
+          <td *ngFor="let key of headerFields">{{item[key]}}</td>
+        </tr>
+      </table>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <h1>No hay datos para mostrar</h1>
+</ng-template>
+
